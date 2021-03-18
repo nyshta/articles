@@ -10,7 +10,18 @@ class Example
 
     public function suspendSuspicious(ChatMessage $chatMessage): void
     {
-        $message = strtr($this->messageTemplate,['$importantData' => 'important data']);
+        $tradeId = $chatMessage->trade_id;
+        $userId = $chatMessage->author_id;
+        $tradeLink = '<'.$this->urlGenerator->route('admin.trade.show', ['tradeHash' => $tradeId]).'|'.$tradeId.'>';
+        $userLink = '<'.$this->urlGenerator->route('admin.user.show', ['user' => $userId]).'|'.$userId.'>';
+        $message = strtr(
+            $this->messageTemplate,
+            [
+                '$userLink' => $userLink,
+                '$tradeLink' => $tradeLink,
+                '$messageBody' => $chatMessage->content_raw,
+            ]
+        );
         $this->notificationService->notificationToSlack($message, $this->channel);
 
         $user = $this->userRepository->find($chatMessage->author_id);
