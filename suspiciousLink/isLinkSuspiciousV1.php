@@ -14,3 +14,5 @@ function isLinkNotSuspicious(string $link)
 }
 
 if (!isLinkNotSuspicious($someLink)) {...}
+
+$this->book->getAuthor()->getLastVisitedCountry()->getZipCode()-> ...
