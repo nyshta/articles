@@ -1,0 +1,7 @@
+{
+  "name": "articles/articles",
+  "description": "articles",
+  "require": {
+    "phpunit/phpunit": "^9.5"
+  }
+}
