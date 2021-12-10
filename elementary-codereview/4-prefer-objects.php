@@ -1,18 +1,18 @@
 <?php
 
-//class BankData
-//{
-//    public function getSwiftCode()
-//    {
-//        //...
-//    }
-//
-//    public function getName()
-//    {
-//        //...
-//    }
-//    //...
-//}
+class BankData
+{
+    public function getSwiftCode()
+    {
+        //...
+    }
+
+    public function getName()
+    {
+        //...
+    }
+    //...
+}
 
 class Example
 {
@@ -21,7 +21,7 @@ class Example
         $bankData = $this->getBankData();
     }
 
-    private function getBankData($by = null): array
+    private function getBankData($by = null): BankData
     {
         //...
     }

@@ -8,10 +8,10 @@ class Example
     //...
 
     /**
-     * @param  mixed  $by
-     * @return mixed
+     * @param  BankId | SwiftCode | null $by
+     * @return Bank
      */
-    public function getBank($by)
+    public function getBank($by): Bank
     {
         if (is_object($by) && $by instanceof BankId) {
             return $this->bankRepository->findBank($by);

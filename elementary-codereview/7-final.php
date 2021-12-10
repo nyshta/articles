@@ -3,7 +3,7 @@
 use PHPUnit\Framework\TestCase;
 
 
-final class BankAccount
+final class BankAccount implements BankAccountInterface
 {
     //...
 }
@@ -21,7 +21,7 @@ class UserTest extends TestCase
 {
     public function testBla()
     {
-        $bankAccount = new BankAccount(); //can't be mocked because of final + no interface
+        $bankAccount = self::createMock(BankAccountInterface::class);
         $user = new User($bankAccount);
     }
 }

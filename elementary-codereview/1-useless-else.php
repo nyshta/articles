@@ -10,13 +10,13 @@ class Example
     public function getBank(?BankId $id, ?SwiftCode $swiftCode): Bank
     {
         if ($id) {
-            $bank = $this->bankRepository->findBank($id);
-        } elseif ($swiftCode) {
-            $bank = $this->bankCodesService->getOrCreateBankFromSWIFT($swiftCode);
-        } else {
-            $bank = $this->bank;
+            return $this->bankRepository->findBank($id);
         }
 
-        return $bank;
+        if ($swiftCode) {
+            return $this->bankCodesService->getOrCreateBankFromSWIFT($swiftCode);
+        }
+
+        return $this->bank;
     }
 }
